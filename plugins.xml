@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android"
+id="org.apache.cordova.EmailComposer">
+
+<name>Email Composer</name>
+
+<asset src="www/EmailComposer.js" target="EmailComposer.js" />
+<asset src="www/EmailComposer" target="EmailComposer" />
+
+<!-- android -->
+<platform name="android">
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+		   <activity
+            android:name="com.phonegap.plugins.emailComposer.EmailComposer"
+			android:configChanges="orientation|keyboardHidden" 
+            android:label="@string/app_name" >
+            <intent-filter>
+              
+            </intent-filter>
+        </activity>
+        
+    </config-file>
+
+    <!-- Cordova 1.5 - 1.9 -->
+    <config-file target="plugins.xml" parent="plugins">
+        <plugin name="ChildBrowser"
+            value="com.phonegap.plugins.emailComposer.EmailComposer"/>
+    </config-file>
+
+    <!-- Cordova 2.0.0 -->
+    <config-file target="config.xml" parent="/cordova/plugins">
+        <plugin name="EmailComposer"
+            value="com.phonegap.plugins.emailComposer.EmailComposer"/>
+    </config-file>
+
+    <source-file src="src/android/EmailComposer.java"
+            target-dir="src/com/phonegap/plugins/EmailComposer" />
+</platform>
+<!-- ios -->
+<platform name="ios">
+    <plugins-plist key="EmailComposer"
+                string="EmailComposer" />
+
+    <resource-file src="EmailComposer.bundle" />
+    
+	<header-file src="EmailComposer.h" />
+    
+    <source-file src="EmailComposer.m" />
+   
+</platform>
